@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Screen/Login.dart';
+import 'package:flutter_application_1/Screen/Signup.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
@@ -28,13 +29,13 @@ class Home extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        Container(
+        SizedBox(
           width: 339,
           height: 58,
           child: Text(
             "Massive discounts and offers when you shope.",
             style: GoogleFonts.inter(
-                fontSize: 12, color: Color.fromARGB(198, 0, 0, 0)),
+                fontSize: 12, color: const Color.fromARGB(198, 0, 0, 0)),
             textAlign: TextAlign.center,
           ),
         ),
@@ -56,7 +57,7 @@ class Home extends StatelessWidget {
                   .push(MaterialPageRoute(builder: (context) => const Login()));
             },
           ),
-          margin: EdgeInsets.only(bottom: 19),
+          margin: const EdgeInsets.only(bottom: 19),
         ),
         OutlinedButton(
           style: ButtonStyle(
@@ -68,7 +69,10 @@ class Home extends StatelessWidget {
             style: TextStyle(
                 fontSize: 20.0, color: Color.fromARGB(255, 45, 73, 144)),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => const Signin()));
+          },
         )
       ],
     )));
