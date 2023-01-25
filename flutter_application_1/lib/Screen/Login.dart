@@ -153,6 +153,7 @@ class Login extends StatelessWidget {
                 ),
               ),
               Container(
+                margin: const EdgeInsets.only(bottom: 19),
                 width: 220,
                 alignment: Alignment.center,
                 child: Row(
