@@ -18,7 +18,7 @@ class Login extends StatelessWidget {
               height: 58,
               margin: const EdgeInsets.fromLTRB(0, 90, 0, 19),
               child: Text(
-                "Welcome back!",
+                "Welcome back",
                 style: GoogleFonts.inter(
                   fontSize: 24,
                   color: const Color.fromARGB(255, 0, 0, 0),
