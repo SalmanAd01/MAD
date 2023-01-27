@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screen/Dashboard.dart';
 import 'package:flutter_application_1/Screen/Home.dart';
 import 'package:flutter_application_1/Screen/Login.dart';
 import 'package:flutter_application_1/Screen/Signup.dart';
@@ -34,7 +35,7 @@ class Success extends StatelessWidget {
         ),
         GestureDetector(
           child: Text(
-            "Continue to Home",
+            "Continue to Dashboard",
             style: GoogleFonts.inter(
                 fontSize: 14,
                 color: Colors.blue,
@@ -42,8 +43,8 @@ class Success extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => const Home()));
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const Dashboard()));
           },
         ),
       ],
