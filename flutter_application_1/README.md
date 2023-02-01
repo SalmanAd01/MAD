@@ -1,4 +1,5 @@
 # flutter_application_1
+<<<<<<< HEAD
 
 A new Flutter project.
 
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+https://www.figma.com/file/Hsj3kKRPkzqutbavsHvTLr/Login-and-signup-pages-for-a-mobile-e-commerce-app.-(Community)?node-id=0%3A1&t=Uzq4mY2U43eLJjHR-0
+>>>>>>> 2571d76c21d9baf994378b31a3f61dad514cb9c6
