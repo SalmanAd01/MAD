@@ -1,91 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/Screen/Profile.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-
-import 'Home.dart';
+import '../Common/Layout.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
-  static const List<String> images = [
-    "https://images.wallpapersden.com/image/download/purple-sunrise-4k-vaporwave_bGplZmiUmZqaraWkpJRmbmdlrWZlbWU.jpg",
-    "https://wallpaperaccess.com/full/2637581.jpg",
-    "https://uhdwallpapers.org/uploads/converted/20/01/14/the-mandalorian-5k-1920x1080_477555-mm-90.jpg"
-  ];
   @override
   State<Dashboard> createState() => _DashboardState();
 }
 
 class _DashboardState extends State<Dashboard> {
-  var _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    switch (_selectedIndex) {
-      case 3:
-        return const Profile();
-    }
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        toolbarHeight: 70,
-        elevation: 0,
-        title: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              RichText(
-                text: const TextSpan(
-                  text: 'Hello,Nacy Liu',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              RichText(
-                text: const TextSpan(
-                  text: 'Good morning',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        actions: const [
-          Icon(
-            Icons.notification_add_outlined,
-            color: Colors.black,
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 10),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                  "https://blog.readyplayer.me/content/images/2022/10/rainer.jpeg"),
-            ),
-          ),
-        ],
-        backgroundColor: Colors.white,
-      ),
-      body: SingleChildScrollView(
+    return Layout(
+      child: SingleChildScrollView(
         child: Column(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             Row(
               children: [
                 Container(
-                    width: 280,
+                    width: 300,
                     height: 45,
                     margin: const EdgeInsets.only(
-                        bottom: 20, top: 20, left: 10, right: 20),
+                        bottom: 10, top: 20, left: 10, right: 20),
                     child: TextField(
                       decoration: InputDecoration(
                           focusColor: const Color.fromARGB(255, 205, 210, 222),
@@ -96,11 +33,12 @@ class _DashboardState extends State<Dashboard> {
                           filled: true,
                           fillColor: Colors.white),
                     )),
+                Spacer(),
                 Container(
                     width: 55,
                     height: 45,
-                    margin:
-                        const EdgeInsets.only(bottom: 20, top: 20, left: 10),
+                    margin: const EdgeInsets.only(
+                        bottom: 10, top: 20, left: 10, right: 10),
                     child: ElevatedButton(
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all<
@@ -127,7 +65,7 @@ class _DashboardState extends State<Dashboard> {
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: SizedBox(
-                    width: 375,
+                    width: 395,
                     child: Column(
                       children: [
                         Image.asset(
@@ -634,35 +572,6 @@ class _DashboardState extends State<Dashboard> {
             )
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        unselectedItemColor: Colors.grey,
-        onTap: (value) => {
-          setState(() {
-            _selectedIndex = value;
-          })
-        },
-        backgroundColor: Colors.white,
       ),
     );
   }

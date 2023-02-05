@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screen/Dashboard.dart';
+import 'package:flutter_application_1/Screen/Home.dart';
 import 'package:flutter_application_1/Screen/Profile.dart';
 
 class Layout extends StatefulWidget {
@@ -10,12 +12,13 @@ class Layout extends StatefulWidget {
 }
 
 class _LayoutState extends State<Layout> {
+  var _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    var _selectedIndex = 0;
     switch (_selectedIndex) {
+      case 1:
+        return const Dashboard();
       case 3:
-        print("Profile");
         return const Profile();
     }
     return Scaffold(
@@ -91,9 +94,8 @@ class _LayoutState extends State<Layout> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
         unselectedItemColor: Colors.grey,
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         onTap: (value) => {
-          print(_selectedIndex),
-          print(value),
           setState(() {
             _selectedIndex = value;
           })
