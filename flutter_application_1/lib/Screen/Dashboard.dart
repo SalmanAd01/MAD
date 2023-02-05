@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/Screen/Profile.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+
+import 'Home.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -18,6 +21,10 @@ class _DashboardState extends State<Dashboard> {
   var _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    switch (_selectedIndex) {
+      case 3:
+        return const Profile();
+    }
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
