@@ -52,70 +52,76 @@ class _LoginState extends State<Login> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    FormBuilderField(
-                      key: _emailFieldKey,
-                      builder: (FormFieldState<dynamic> field) {
-                        return Container(
-                          width: 340,
-                          height: 55,
-                          margin: const EdgeInsets.only(bottom: 20),
-                          child: TextField(
-                            onChanged: (value) => field.didChange(value),
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
+                    FormBuilder(
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 340,
+                            height: 100,
+                            child: FormBuilderTextField(
+                              name: 'email',
+                              key: _emailFieldKey,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: FormBuilderValidators.compose([
+                                FormBuilderValidators.required(context),
+                                FormBuilderValidators.email(context),
+                              ]),
+                              decoration: InputDecoration(
+                                contentPadding:
+                                    const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                fillColor: Colors.white,
+                                filled: true,
                                 labelText: 'Email',
-                                filled: true,
-                                fillColor: Colors.white),
+                                labelStyle: GoogleFonts.inter(
+                                  fontSize: 14,
+                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                                hintText: 'Enter your email',
+                                hintStyle: GoogleFonts.inter(
+                                  fontSize: 14,
+                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ),
                           ),
-                        );
-                      },
-                      name: 'email',
-                      onChanged: (dynamic value) {
-                        print(value);
-                        value = value.trim();
-                        _formKey.currentState!.save();
-                      },
-                      decoration: const InputDecoration(labelText: 'Email'),
-                      validator: FormBuilderValidators.compose([
-                        FormBuilderValidators.required(),
-                        FormBuilderValidators.email(
-                          errorText: 'Please enter a valid email address',
-                        )
-                      ]),
-                    ),
-                    const SizedBox(height: 10),
-                    FormBuilderField(
-                      key: _passwordFieldKey,
-                      builder: (FormFieldState<dynamic> field) {
-                        return Container(
-                          width: 340,
-                          height: 55,
-                          margin: const EdgeInsets.only(bottom: 20),
-                          child: TextField(
-                            onChanged: (value) => field.didChange(value),
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
+                          Container(
+                            width: 340,
+                            height: 100,
+                            child: FormBuilderTextField(
+                              name: 'password',
+                              key: _passwordFieldKey,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: FormBuilderValidators.compose([
+                                FormBuilderValidators.required(context),
+                                FormBuilderValidators.minLength(context, 6),
+                              ]),
+                              decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 labelText: 'Password',
-                                filled: true,
-                                fillColor: Colors.white),
+                                labelStyle: GoogleFonts.inter(
+                                  fontSize: 14,
+                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                                hintText: 'Enter your password',
+                                hintStyle: GoogleFonts.inter(
+                                  fontSize: 14,
+                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ),
                           ),
-                        );
-                      },
-                      name: 'password',
-                      onChanged: (dynamic value) {
-                        print(value);
-                        value = value.trim();
-                        _formKey.currentState!.save();
-                        _formKey.currentState!.validate();
-                      },
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      decoration: const InputDecoration(labelText: 'Password'),
-                      validator: FormBuilderValidators.compose([
-                        FormBuilderValidators.minLength(6,
-                            errorText: 'Password must be at least 6 characters')
-                      ]),
+                        ],
+                      ),
                     ),
-                    const SizedBox(height: 10),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 25, vertical: 21),
@@ -162,11 +168,13 @@ class _LoginState extends State<Login> {
                         ),
                         onPressed: () {
                           // runnning the validation
-                          // if (_formKey.currentState!.validate()) {
-                          //   print(_formKey.currentState!.value);
-                          // } else {
-                          //   return;
-                          // }
+                          if (_formKey.currentState!.validate()) {
+                            print(_formKey.currentState!.value);
+                          } else {
+                            print("validation failed");
+                            print(_formKey.currentState!.value);
+                            return;
+                          }
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const Success()));
                         },
