@@ -13,6 +13,7 @@ class Layout extends StatefulWidget {
 
 class _LayoutState extends State<Layout> {
   var _selectedIndex = 0;
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     switch (_selectedIndex) {
@@ -22,6 +23,79 @@ class _LayoutState extends State<Layout> {
         return const Profile();
     }
     return Scaffold(
+      key: _key,
+      drawer: new Drawer(
+        child: ListView(
+          padding: const EdgeInsets.all(0),
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 243, 116, 61),
+              ), //BoxDecoration
+              child: UserAccountsDrawerHeader(
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(255, 243, 116, 61)),
+                accountName: Text(
+                  "Salman Adhikari",
+                  style: TextStyle(fontSize: 18),
+                ),
+                accountEmail: Text("adhikarijit120@gst.sies.edu.in"),
+                currentAccountPictureSize: Size.square(50),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Color.fromARGB(255, 0, 0, 0),
+                  child: Text(
+                    "A",
+                    style: TextStyle(fontSize: 30.0, color: Colors.blue),
+                  ), //Text
+                ), //circleAvatar
+              ), //UserAccountDrawerHeader
+            ), //DrawerHeader
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text(' My Profile '),
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const Profile()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.book),
+              title: const Text(' My Course '),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.workspace_premium),
+              title: const Text(' Go Premium '),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.video_label),
+              title: const Text(' Saved Videos '),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.edit),
+              title: const Text(' Edit Profile '),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('LogOut'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
@@ -53,7 +127,7 @@ class _LayoutState extends State<Layout> {
             ],
           ),
         ),
-        actions: const [
+        actions: [
           Icon(
             Icons.notification_add_outlined,
             color: Colors.black,
@@ -63,9 +137,13 @@ class _LayoutState extends State<Layout> {
           ),
           Padding(
             padding: EdgeInsets.only(right: 10),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                  "https://blog.readyplayer.me/content/images/2022/10/rainer.jpeg"),
+            child: InkWell(
+              onTap: () => {_key.currentState!.openDrawer(), print("jo")},
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  "https://blog.readyplayer.me/content/images/2022/10/rainer.jpeg",
+                ),
+              ),
             ),
           ),
         ],

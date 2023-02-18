@@ -473,7 +473,7 @@ class _DashboardState extends State<Dashboard> {
                                         ),
                                       ),
                                       child: Image.asset(
-                                        "assets/images/2368a11b67566a7cb8dac832f94b1ec9 2.png",
+                                        "assets/images/graps.png",
                                         height: 150,
                                       ),
                                     ),
@@ -578,6 +578,315 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                   ),
+                ],
+              ),
+            ),
+            Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(left: 10, top: 20),
+                  child: Text(
+                    "All Grocery",
+                    style: GoogleFonts.inter(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                    ),
+                    textAlign: TextAlign.end,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Column(
+                  children: [
+                    Container(
+                        width: 200,
+                        height: 200,
+                        margin: EdgeInsets.only(left: 15, top: 15),
+                        child: Image.asset('assets/images/chocolate.png'),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Color.fromARGB(255, 228, 225, 225),
+                                  Color.fromARGB(255, 255, 255, 255),
+                                  Color.fromARGB(255, 228, 225, 225)
+                                ])))
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(left: 10, bottom: 10),
+                      child: Text(
+                        "Chocolates",
+                        style: GoogleFonts.inter(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ),
+                    ),
+                    Container(
+                        padding: EdgeInsets.only(left: 10, bottom: 10),
+                        child: Row(children: [
+                          const Icon(
+                            Icons.star,
+                            color: Color.fromARGB(255, 255, 199, 0),
+                          ),
+                          Text(
+                            " 4.3 ",
+                            style: GoogleFonts.inter(
+                              fontSize: 14,
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            " 75 Ratings",
+                            style: GoogleFonts.inter(
+                              fontSize: 14,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ])),
+                    Container(
+                      padding: EdgeInsets.only(left: 15, bottom: 10),
+                      child: Text(
+                        "\$75",
+                        style: GoogleFonts.inter(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ),
+                    ),
+                    const Divider(
+                      color: Colors.black,
+                      thickness: 100,
+                      height: 10,
+                    ),
+                    Container(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Row(children: [
+                          Image.asset(
+                            'assets/images/dis.png',
+                            width: 20,
+                          ),
+                          Text(
+                            " 50% off upto \$40",
+                            style: GoogleFonts.inter(
+                              fontSize: 17,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ])),
+                  ],
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      width: 200,
+                      height: 200,
+                      margin: EdgeInsets.only(left: 15, top: 15),
+                      child: Image.asset('assets/images/sandwhich.png'),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color.fromARGB(245, 237, 218, 125),
+                                Color.fromARGB(255, 255, 255, 255),
+                                Color.fromARGB(245, 237, 218, 125)
+                              ])),
+                    )
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(left: 10, bottom: 10),
+                      child: Text(
+                        "Sandwich",
+                        style: GoogleFonts.inter(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ),
+                    ),
+                    Container(
+                        padding: EdgeInsets.only(left: 10, bottom: 10),
+                        child: Row(children: [
+                          const Icon(
+                            Icons.star,
+                            color: Color.fromARGB(255, 255, 199, 0),
+                          ),
+                          Text(
+                            " 4.3 ",
+                            style: GoogleFonts.inter(
+                              fontSize: 14,
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            " 75 Ratings",
+                            style: GoogleFonts.inter(
+                              fontSize: 14,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ])),
+                    Container(
+                      padding: EdgeInsets.only(left: 15, bottom: 10),
+                      child: Text(
+                        "\$10",
+                        style: GoogleFonts.inter(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ),
+                    ),
+                    const Divider(
+                      color: Colors.black,
+                      thickness: 100,
+                      height: 10,
+                    ),
+                    Container(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Row(children: [
+                          Image.asset(
+                            'assets/images/dis.png',
+                            width: 20,
+                          ),
+                          Text(
+                            " 5% off upto \$5",
+                            style: GoogleFonts.inter(
+                              fontSize: 17,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ])),
+                  ],
+                )
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 20),
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        width: 200,
+                        height: 200,
+                        margin: EdgeInsets.only(left: 15, top: 15),
+                        child: Image.asset('assets/images/stawberray.png'),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Color.fromARGB(255, 255, 215, 201),
+                                  Color.fromARGB(255, 255, 255, 255),
+                                  Color.fromARGB(255, 255, 215, 201)
+                                ])),
+                      )
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 10, bottom: 10),
+                        child: Text(
+                          "strawberry",
+                          style: GoogleFonts.inter(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                          ),
+                        ),
+                      ),
+                      Container(
+                          padding: EdgeInsets.only(left: 10, bottom: 10),
+                          child: Row(children: [
+                            const Icon(
+                              Icons.star,
+                              color: Color.fromARGB(255, 255, 199, 0),
+                            ),
+                            Text(
+                              " 4.3 ",
+                              style: GoogleFonts.inter(
+                                fontSize: 14,
+                                color: const Color.fromARGB(255, 0, 0, 0),
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              " 75 Ratings",
+                              style: GoogleFonts.inter(
+                                fontSize: 14,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ])),
+                      Container(
+                        padding: EdgeInsets.only(left: 15, bottom: 10),
+                        child: Text(
+                          "\$50",
+                          style: GoogleFonts.inter(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                          ),
+                        ),
+                      ),
+                      const Divider(
+                        color: Colors.black,
+                        thickness: 100,
+                        height: 10,
+                      ),
+                      Container(
+                          padding: EdgeInsets.only(left: 15),
+                          child: Row(children: [
+                            Image.asset(
+                              'assets/images/dis.png',
+                              width: 20,
+                            ),
+                            Text(
+                              " 50% off upto \$40",
+                              style: GoogleFonts.inter(
+                                fontSize: 17,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ])),
+                    ],
+                  )
                 ],
               ),
             )
