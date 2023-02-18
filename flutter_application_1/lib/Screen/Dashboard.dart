@@ -20,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
             Row(
               children: [
                 Container(
-                    width: 300,
+                    width: MediaQuery.of(context).size.width - 100,
                     height: 45,
                     margin: const EdgeInsets.only(
                         bottom: 10, top: 20, left: 10, right: 20),
@@ -36,7 +36,7 @@ class _DashboardState extends State<Dashboard> {
                     )),
                 Spacer(),
                 Container(
-                    width: 55,
+                    width: 50,
                     height: 45,
                     margin: const EdgeInsets.only(
                         bottom: 10, top: 20, left: 10, right: 10),
@@ -66,7 +66,7 @@ class _DashboardState extends State<Dashboard> {
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: SizedBox(
-                    width: 395,
+                    width: MediaQuery.of(context).size.width - 15,
                     child: Column(
                       children: [
                         Image.asset(
@@ -431,7 +431,7 @@ class _DashboardState extends State<Dashboard> {
                                         Text(
                                           "\$13.9",
                                           style: GoogleFonts.inter(
-                                            fontSize: 14,
+                                            fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                             color: const Color.fromARGB(
                                                 255, 243, 116, 61),
@@ -559,7 +559,7 @@ class _DashboardState extends State<Dashboard> {
                                         Text(
                                           "\$13.9",
                                           style: GoogleFonts.inter(
-                                            fontSize: 14,
+                                            fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                             color: const Color.fromARGB(
                                                 255, 243, 116, 61),
@@ -602,7 +602,7 @@ class _DashboardState extends State<Dashboard> {
                 Column(
                   children: [
                     Container(
-                        width: 200,
+                        width: MediaQuery.of(context).size.width / 2 - 20,
                         height: 200,
                         margin: EdgeInsets.only(left: 15, top: 15),
                         child: Image.asset('assets/images/chocolate.png'),
@@ -690,7 +690,7 @@ class _DashboardState extends State<Dashboard> {
                           ),
                         ])),
                   ],
-                )
+                ),
               ],
             ),
             Row(
@@ -698,7 +698,7 @@ class _DashboardState extends State<Dashboard> {
                 Column(
                   children: [
                     Container(
-                      width: 200,
+                      width: MediaQuery.of(context).size.width / 2 - 20,
                       height: 200,
                       margin: EdgeInsets.only(left: 15, top: 15),
                       child: Image.asset('assets/images/sandwhich.png'),
@@ -797,7 +797,7 @@ class _DashboardState extends State<Dashboard> {
                   Column(
                     children: [
                       Container(
-                        width: 200,
+                        width: MediaQuery.of(context).size.width / 2 - 20,
                         height: 200,
                         margin: EdgeInsets.only(left: 15, top: 15),
                         child: Image.asset('assets/images/stawberray.png'),

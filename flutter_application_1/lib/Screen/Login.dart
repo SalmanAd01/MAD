@@ -2,10 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Screen/Signup.dart';
 import 'package:flutter_application_1/Screen/Success.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final _formKey = GlobalKey<FormBuilderState>();
+  final _emailFieldKey = GlobalKey<FormBuilderFieldState>();
+  final _passwordFieldKey = GlobalKey<FormBuilderFieldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,79 +48,133 @@ class Login extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
               ),
-              Container(
-                  width: 340,
-                  height: 55,
-                  margin: const EdgeInsets.only(bottom: 47),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Enter your name',
-                        filled: true,
-                        fillColor: Colors.white),
-                  )),
-              // ignore: prefer_const_constructors
-              SizedBox(
-                  width: 340,
-                  height: 55,
-                  child: const TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Enter your password',
-                        filled: true,
-                        fillColor: Colors.white),
-                  )),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 21),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              FormBuilder(
+                key: _formKey,
+                child: Column(
                   children: [
-                    Row(
-                      children: [
-                        Icon(Icons.check_box_outlined),
-                        Text(
-                          "Remember Me",
-                          style: GoogleFonts.inter(
-                            fontSize: 14,
-                            color: const Color.fromARGB(255, 0, 0, 0),
+                    FormBuilderField(
+                      key: _emailFieldKey,
+                      builder: (FormFieldState<dynamic> field) {
+                        return Container(
+                          width: 340,
+                          height: 55,
+                          margin: const EdgeInsets.only(bottom: 20),
+                          child: TextField(
+                            onChanged: (value) => field.didChange(value),
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Email',
+                                filled: true,
+                                fillColor: Colors.white),
                           ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                        );
+                      },
+                      name: 'email',
+                      onChanged: (dynamic value) {
+                        print(value);
+                        value = value.trim();
+                        _formKey.currentState!.save();
+                      },
+                      decoration: const InputDecoration(labelText: 'Email'),
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(),
+                        FormBuilderValidators.email(
+                          errorText: 'Please enter a valid email address',
+                        )
+                      ]),
                     ),
-                    Text(
-                      "Forgotten password?",
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                        color: const Color.fromARGB(255, 0, 0, 0),
+                    const SizedBox(height: 10),
+                    FormBuilderField(
+                      key: _passwordFieldKey,
+                      builder: (FormFieldState<dynamic> field) {
+                        return Container(
+                          width: 340,
+                          height: 55,
+                          margin: const EdgeInsets.only(bottom: 20),
+                          child: TextField(
+                            onChanged: (value) => field.didChange(value),
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Password',
+                                filled: true,
+                                fillColor: Colors.white),
+                          ),
+                        );
+                      },
+                      name: 'password',
+                      onChanged: (dynamic value) {
+                        print(value);
+                        value = value.trim();
+                        _formKey.currentState!.save();
+                        _formKey.currentState!.validate();
+                      },
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      decoration: const InputDecoration(labelText: 'Password'),
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.minLength(6,
+                            errorText: 'Password must be at least 6 characters')
+                      ]),
+                    ),
+                    const SizedBox(height: 10),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 21),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.check_box_outlined),
+                              Text(
+                                "Remember Me",
+                                style: GoogleFonts.inter(
+                                  fontSize: 14,
+                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                          Text(
+                            "Forgotten password?",
+                            style: GoogleFonts.inter(
+                              fontSize: 14,
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       ),
-                      textAlign: TextAlign.center,
+                    ),
+                    Container(
+                      // ignore: sort_child_properties_last
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                            minimumSize:
+                                MaterialStateProperty.all(const Size(196, 55)),
+                            backgroundColor: MaterialStateProperty.all(
+                                const Color.fromARGB(255, 45, 73, 144))),
+                        child: Text(
+                          'Login',
+                          style: GoogleFonts.inter(
+                              color: const Color.fromARGB(255, 250, 250, 250),
+                              fontSize: 24),
+                        ),
+                        onPressed: () {
+                          // runnning the validation
+                          // if (_formKey.currentState!.validate()) {
+                          //   print(_formKey.currentState!.value);
+                          // } else {
+                          //   return;
+                          // }
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const Success()));
+                        },
+                      ),
+                      margin: const EdgeInsets.only(bottom: 25, top: 30),
                     ),
                   ],
                 ),
-              ),
-              Container(
-                // ignore: sort_child_properties_last
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                      minimumSize:
-                          MaterialStateProperty.all(const Size(196, 55)),
-                      backgroundColor: MaterialStateProperty.all(
-                          const Color.fromARGB(255, 45, 73, 144))),
-                  child: Text(
-                    'Login',
-                    style: GoogleFonts.inter(
-                        color: const Color.fromARGB(255, 250, 250, 250),
-                        fontSize: 24),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const Success()));
-                  },
-                ),
-                margin: const EdgeInsets.only(bottom: 25, top: 30),
               ),
               Text(
                 "Or",

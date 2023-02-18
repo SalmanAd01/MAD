@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/Screen/Login.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Checkout extends StatefulWidget {
@@ -274,28 +275,40 @@ class _CheckoutState extends State<Checkout> {
                 ],
               ),
               Container(
-                width: 600,
+                width: MediaQuery.of(context).size.width - 10,
                 height: 55,
-                margin: const EdgeInsets.only(bottom: 40, top: 25),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
-                      minimumSize:
-                          MaterialStateProperty.all(const Size(340, 55)),
-                      side: MaterialStateProperty.all(const BorderSide(
-                          width: 1.0,
-                          color: Color.fromARGB(255, 255, 162, 121)))),
-                  child: Row(
-                    children: const [
-                      Text(
-                        'Next',
-                        style: TextStyle(
-                            fontSize: 18.0,
-                            color: Color.fromARGB(255, 0, 0, 0)),
-                      ),
+                padding: EdgeInsets.all(0),
+                // ignore: sort_child_properties_last
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  gradient: LinearGradient(
+                    colors: [
+                      Color.fromARGB(255, 255, 162, 121),
+                      Color.fromARGB(255, 243, 116, 61),
                     ],
                   ),
-                  onPressed: () {},
+                ),
+                margin: const EdgeInsets.only(bottom: 19),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.transparent),
+                    padding: MaterialStateProperty.all(EdgeInsets.all(0)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                  child: Text(
+                    'Next',
+                    style: GoogleFonts.inter(
+                        color: const Color.fromARGB(255, 250, 250, 250),
+                        fontSize: 24),
+                  ),
+                  onPressed: () {
+                    print('Next');
+                  },
                 ),
               ),
             ],

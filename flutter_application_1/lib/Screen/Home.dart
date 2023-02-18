@@ -54,8 +54,8 @@ class Home extends StatelessWidget {
                     fontSize: 24),
               ),
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const Login()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Login()));
               },
             ),
             margin: const EdgeInsets.only(bottom: 19),
