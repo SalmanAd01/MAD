@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screen/Checkout.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../Common/Layout.dart';
 
@@ -319,23 +320,33 @@ class _DashboardState extends State<Dashboard> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Stack(children: [
-                                    Container(
-                                      width: 250,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(15.0),
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color.fromARGB(255, 255, 230, 173),
-                                            Color.fromARGB(255, 255, 178, 0)
-                                          ],
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Checkout()),
+                                        );
+                                      },
+                                      child: Container(
+                                        width: 250,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15.0),
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Color.fromARGB(
+                                                  255, 255, 230, 173),
+                                              Color.fromARGB(255, 255, 178, 0)
+                                            ],
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                          ),
                                         ),
-                                      ),
-                                      child: Image.asset(
-                                        "assets/images/mango.png",
-                                        height: 150,
+                                        child: Image.asset(
+                                          "assets/images/mango.png",
+                                          height: 150,
+                                        ),
                                       ),
                                     ),
                                     Positioned(
